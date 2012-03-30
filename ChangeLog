@@ -1,0 +1,9 @@
+2012-03-30 Frederic Gaus <info@flagbit.de>
+
+	* Released version 0.6.0
+	* UPD caretaker of this extension
+	* FIX some typos in locallang
+	* ADD TYPO3 4.6 compatibility
+	* ADD support for salted passwords other than md5
+	* FIX some coding guideline violations
+	* refactoring to a more object oriented approach

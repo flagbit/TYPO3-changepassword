@@ -1,0 +1,54 @@
+######################################################################################################
+CHANGE PASSWORD
+######################################################################################################
+------------------------------------------------------------------------------------------------------
+<!-- ###TEMPLATE### begin -->
+<form enctype="multipart/form-data" method="post" action="###FORM_ACTION###">
+	<fieldset><legend>###LEGEND###</legend>
+		<!--###SUBPART_ERR_OLDPASSWORD### begin -->
+		<p>
+			<span class="tx-changepassword-err">###ERR_OLDPASSWORD###</span>
+
+		</p>
+		<!-- ###SUBPART_ERR_OLDPASSWORD### end -->
+		<p>
+			<label for="oldpassword">###OLDPASSWORD###:</label>
+			<input type="password" id="oldpassword" name="tx_changepassword_pi1[oldpassword]" value="" />
+		</p>
+		<!--###SUBPART_ERR_NEWPASSWORD### begin -->
+		<p>
+			<span class="tx-changepassword-err">###ERR_NEWPASSWORD###</span>
+
+		</p>
+		<!-- ###SUBPART_ERR_NEWPASSWORD### end -->
+		<p>
+			<label for="newpassword">###NEWPASSWORD###:</label>
+			<input type="password" id="newpassword" name="tx_changepassword_pi1[newpassword]" value="" />
+		</p>
+		<!--###SUBPART_ERR_REPASSWORD### begin -->
+		<p>
+			<span class="tx-changepassword-err">###ERR_REPASSWORD###</span>
+
+		</p>
+		<!-- ###SUBPART_ERR_REPASSWORD### end -->
+		<p>
+			<label for="repassword">###REPASSWORD###:</label>
+			<input type="password" id="repassword" name="tx_changepassword_pi1[repassword]" value="" />
+		</p>
+	</fieldset>
+	<p>
+		<input type="hidden" name="tx_changepassword_pi1[save]" value="1" />
+		<input type="submit" class="csc-mailform-submit" value="###SUBMIT###" />
+	</p>
+</form>
+<!-- ###TEMPLATE### end -->
+------------------------------------------------------------------------------------------------------
+######################################################################################################
+SUCCESS
+######################################################################################################
+------------------------------------------------------------------------------------------------------
+<!-- ###TEMPLATE_SUCCESS### begin -->
+<p><b>###HEADER###</b></p>
+<p>###MESSAGE###</p>
+<!-- ###TEMPLATE_SUCCESS### end -->
+------------------------------------------------------------------------------------------------------

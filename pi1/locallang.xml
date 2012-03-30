@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_changepassword_pi1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="legend">Change password</label>
+			<label index="oldpassword">Old password</label>
+			<label index="newpassword">New password</label>
+			<label index="repassword">New password again</label>
+			<label index="passwordsaved">New password was saved.</label>
+			<label index="passwordsaved_message">The new password has been saved. Please use your new password for the next login.</label>
+			<label index="submit">Submit</label>
+
+			<label index="wrongOldPassword">Old password was wrong.</label>
+			<label index="twodifferentnewpasswords">The new passwords were not equal.</label>
+			<label index="toshortpassword">The new password was to short.</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="legend">Passwort ändern</label>
+			<label index="oldpassword">Altes Passwort</label>
+			<label index="newpassword">Neues Passwort</label>
+			<label index="repassword">Wiederholen</label>
+			<label index="passwordsaved">Neues Passwort wurde gespeichert.</label>
+			<label index="passwordsaved_message">Das neue Passwort wurde gespeichert. Bitte benutzen Sie beim nächsten Login nur noch das neue Passwort.</label>
+			<label index="submit">Speichern</label>
+
+			<label index="wrongOldPassword">Altes Passwort ist falsch.</label>
+			<label index="twodifferentnewpasswords">Das neue Passwort wurde nicht richtig wiederholt.</label>
+			<label index="toshortpassword">Das neue Passwort ist zu kurz.</label>
+		</languageKey>
+		<languageKey index="tr" type="array">
+			<label index="legend">Şifremi değiştir</label>
+			<label index="oldpassword">Eski şifre</label>
+			<label index="newpassword">Yeni şifre</label>
+			<label index="repassword">Tekrarla</label>
+			<label index="passwordsaved">Yeni şifren kaydoldu.</label>
+			<label index="passwordsaved_message">Yeni şifren kaydoldu. Lütfen bundan sonra sadece yeni şifreni kullan.</label>
+			<label index="submit">Gönder</label>
+
+			<label index="wrongOldPassword">Eski şifre hatalı.</label>
+			<label index="twodifferentnewpasswords">Yeni şifre doğru tekrarlanmadı.</label>
+			<label index="toshortpassword">Yeni şifren çok kısa.</label>
+		</languageKey>
+	</data>
+</T3locallang>
