@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "changepassword".
 #
-# Auto generated 30-03-2012 14:38
+# Auto generated 02-04-2012 12:40
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'Change the password of the front end user in the frontend. Easy template system to configure the layout. User have to enter his old password an twice the new one. Support for salted passwords.',
 	'category' => 'fe',
 	'shy' => 0,
-	'version' => '0.6.0',
+	'version' => '0.7.0',
 	'dependencies' => 'felogin',
 	'conflicts' => '',
 	'priority' => '',
