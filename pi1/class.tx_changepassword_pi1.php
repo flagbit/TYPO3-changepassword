@@ -54,7 +54,10 @@ class tx_changepassword_pi1 extends tslib_pibase {
 		$this->config['userid'] = $GLOBALS['TSFE']->loginUser ? $GLOBALS['TSFE']->fe_user->user['uid'] : false;
 
 		// Getting the pid list via the flexform
-		$this->config['pages'] = $this->cObj->data['pages'];
+		$pidList = $this->cObj->data['pages'];
+		$this->conf['pidList'] = $pidList ?
+			$pidList :
+			$GLOBALS['TSFE']->id;
 
 		// Template code
 		$this->config['templateFile'] = $this->cObj->fileResource($this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'templateFile', 'sDEF') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'templateFile', 'sDEF')  : t3lib_extMgm::siteRelPath($this->extKey) . 'res/template.html');
@@ -149,7 +152,7 @@ class tx_changepassword_pi1 extends tslib_pibase {
 		// Save new Password in the db
 		$updateQueryStatus = $GLOBALS['TYPO3_DB']->exec_UPDATEquery (
 			'fe_users',
-			'uid = ' . $this->config['userid'] . ' AND pid = ' . $this->config['pages'],
+			'uid = ' . $this->config['userid'] . ' AND pid IN (' . $this->conf['pidList'] . ')',
 			$updatePassword
 		);
 		return $updateQueryStatus;
@@ -162,7 +165,7 @@ class tx_changepassword_pi1 extends tslib_pibase {
 		$password = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow (
 			'password', // SELECT
 			'fe_users', // FROM
-			'uid = ' . $this->config['userid'] .' AND pid = ' . $this->config['pages'] //WHERE
+			'uid = ' . $this->config['userid'] .' AND pid IN (' . $this->conf['pidList'] . ')' //WHERE
 		);
 		$password = current($password);
 		if (t3lib_extMgm::isLoaded('saltedpasswords')) {
