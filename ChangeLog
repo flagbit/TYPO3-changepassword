@@ -1,3 +1,13 @@
+2012-06-04 Andreas Bouché <info@flagbit.de>
+
+	* Released version 0.7.2
+	* [+BUGFIX] Check if salted passwords are enabled in the FE (Thanks to Till Wimmer for submitting a patch.)
+
+2012-04-17 Andreas Bouché <info@flagbit.de>
+
+	* Released version 0.7.1
+	* [+FEATURE] Added support for multiple fe_user storage pages (Thanks to Claus Fassing for submitting a patch.)
+
 2012-03-30 Frederic Gaus <info@flagbit.de>
 
 	* Released version 0.6.0

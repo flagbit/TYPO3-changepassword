@@ -138,7 +138,7 @@ class tx_changepassword_pi1 extends tslib_pibase {
 	// Save the new password
 	private function savePassword() {
 		$updatePassword = array('password' => '', 'tstamp' => time());
-		if (t3lib_extMgm::isLoaded('saltedpasswords')) {
+		if (t3lib_extMgm::isLoaded('saltedpasswords') && tx_saltedpasswords_div::isUsageEnabled('FE')) {
 			// EXT: saltedpassword
 			$instanceSalted = tx_saltedpasswords_salts_factory::getSaltingInstance();
 			$updatePassword['password'] = $instanceSalted->getHashedPassword($this->piVars['newpassword']);
@@ -168,7 +168,7 @@ class tx_changepassword_pi1 extends tslib_pibase {
 			'uid = ' . $this->config['userid'] .' AND pid IN (' . $this->conf['pidList'] . ')' //WHERE
 		);
 		$password = current($password);
-		if (t3lib_extMgm::isLoaded('saltedpasswords')) {
+		if (t3lib_extMgm::isLoaded('saltedpasswords') && tx_saltedpasswords_div::isUsageEnabled('FE')) {
 			$instanceSalted = tx_saltedpasswords_salts_factory::getSaltingInstance();
 		}
 		if ($instanceSalted && $instanceSalted->isValidSaltedPW($password)) {

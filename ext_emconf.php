@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "changepassword".
 #
-# Auto generated 17-04-2012 17:56
+# Auto generated 04-06-2012 15:23
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'Change the password of the front end user in the frontend. Easy template system to configure the layout. User have to enter his old password an twice the new one. Support for salted passwords.',
 	'category' => 'fe',
 	'shy' => 0,
-	'version' => '0.7.1',
+	'version' => '0.7.2',
 	'dependencies' => 'felogin',
 	'conflicts' => '',
 	'priority' => '',
@@ -41,7 +41,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:15:{s:9:"ChangeLog";s:4:"cb1f";s:12:"ext_icon.gif";s:4:"2359";s:17:"ext_localconf.php";s:4:"84d5";s:14:"ext_tables.php";s:4:"ab7d";s:15:"flexform_ds.xml";s:4:"34c7";s:16:"locallang_db.xml";s:4:"c113";s:14:"doc/manual.sxw";s:4:"cd17";s:19:"doc/wizard_form.dat";s:4:"dc9f";s:20:"doc/wizard_form.html";s:4:"c1dd";s:35:"pi1/class.tx_changepassword_pi1.php";s:4:"c82d";s:17:"pi1/locallang.xml";s:4:"f170";s:13:"res/style.css";s:4:"c053";s:17:"res/template.html";s:4:"ef53";s:35:"static/changepassword/constants.txt";s:4:"d41d";s:31:"static/changepassword/setup.txt";s:4:"d41d";}',
+	'_md5_values_when_last_written' => 'a:15:{s:9:"ChangeLog";s:4:"5957";s:12:"ext_icon.gif";s:4:"2359";s:17:"ext_localconf.php";s:4:"84d5";s:14:"ext_tables.php";s:4:"ab7d";s:15:"flexform_ds.xml";s:4:"34c7";s:16:"locallang_db.xml";s:4:"c113";s:14:"doc/manual.sxw";s:4:"cd17";s:19:"doc/wizard_form.dat";s:4:"dc9f";s:20:"doc/wizard_form.html";s:4:"c1dd";s:35:"pi1/class.tx_changepassword_pi1.php";s:4:"2caf";s:17:"pi1/locallang.xml";s:4:"f170";s:13:"res/style.css";s:4:"c053";s:17:"res/template.html";s:4:"ef53";s:35:"static/changepassword/constants.txt";s:4:"d41d";s:31:"static/changepassword/setup.txt";s:4:"d41d";}',
 	'suggests' => array(
 	),
 );
