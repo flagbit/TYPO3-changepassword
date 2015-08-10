@@ -27,9 +27,6 @@
  * Hint: use extdeveval to insert/update function index above.
  */
 
-require_once(PATH_tslib.'class.tslib_pibase.php');
-
-
 /**
  * Plugin 'Change Password' for the 'changepassword' extension.
  *
@@ -38,7 +35,7 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
  * @package TYPO3
  * @subpackage tx_changepassword
  */
-class tx_changepassword_pi1 extends tslib_pibase {
+class tx_changepassword_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 	public $prefixId = 'tx_changepassword_pi1'; // Same as class name
 	public $scriptRelPath = 'pi1/class.tx_changepassword_pi1.php'; // Path to this script relative to the extension dir.
 	public $extKey = 'changepassword'; // The extension key.
