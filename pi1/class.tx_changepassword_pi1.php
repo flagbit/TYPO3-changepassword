@@ -1,4 +1,8 @@
 <?php
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
+use TYPO3\CMS\Saltedpasswords\Utility\SaltedPasswordsUtility;
+use TYPO3\CMS\Saltedpasswords\Salt\SaltFactory;
 /***************************************************************
 *  Copyright notice
 *
@@ -21,14 +25,6 @@
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
-/**
- * [CLASS/FUNCTION INDEX of SCRIPT]
- *
- * Hint: use extdeveval to insert/update function index above.
- */
-
-require_once(PATH_tslib.'class.tslib_pibase.php');
-
 
 /**
  * Plugin 'Change Password' for the 'changepassword' extension.
@@ -38,7 +34,8 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
  * @package TYPO3
  * @subpackage tx_changepassword
  */
-class tx_changepassword_pi1 extends tslib_pibase {
+class tx_changepassword_pi1 extends AbstractPlugin
+{
 	public $prefixId = 'tx_changepassword_pi1'; // Same as class name
 	public $scriptRelPath = 'pi1/class.tx_changepassword_pi1.php'; // Path to this script relative to the extension dir.
 	public $extKey = 'changepassword'; // The extension key.
@@ -60,7 +57,7 @@ class tx_changepassword_pi1 extends tslib_pibase {
 			$GLOBALS['TSFE']->id;
 
 		// Template code
-		$this->config['templateFile'] = $this->cObj->fileResource($this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'templateFile', 'sDEF') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'templateFile', 'sDEF')  : t3lib_extMgm::siteRelPath($this->extKey) . 'res/template.html');
+		$this->config['templateFile'] = $this->cObj->fileResource($this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'templateFile', 'sDEF') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'templateFile', 'sDEF')  : ExtensionManagementUtility::siteRelPath($this->extKey) . 'res/template.html');
 	}
 
 
@@ -138,11 +135,11 @@ class tx_changepassword_pi1 extends tslib_pibase {
 	// Save the new password
 	private function savePassword() {
 		$updatePassword = array('password' => '', 'tstamp' => time());
-		if (t3lib_extMgm::isLoaded('saltedpasswords') && tx_saltedpasswords_div::isUsageEnabled('FE')) {
+		if (ExtensionManagementUtility::isLoaded('saltedpasswords') && SaltedPasswordsUtility::isUsageEnabled('FE')) {
 			// EXT: saltedpassword
-			$instanceSalted = tx_saltedpasswords_salts_factory::getSaltingInstance();
+			$instanceSalted = SaltFactory::getSaltingInstance();
 			$updatePassword['password'] = $instanceSalted->getHashedPassword($this->piVars['newpassword']);
-		} else if (t3lib_extMgm::isLoaded('kb_md5fepw')) {
+		} else if (ExtensionManagementUtility::isLoaded('kb_md5fepw')) {
 			// EXT: kb_md5fepw
 			$updatePassword['password'] = md5($this->piVars['newpassword']);
 		} else {
@@ -168,14 +165,14 @@ class tx_changepassword_pi1 extends tslib_pibase {
 			'uid = ' . $this->config['userid'] .' AND pid IN (' . $this->conf['pidList'] . ')' //WHERE
 		);
 		$password = current($password);
-		if (t3lib_extMgm::isLoaded('saltedpasswords') && tx_saltedpasswords_div::isUsageEnabled('FE')) {
-			$instanceSalted = tx_saltedpasswords_salts_factory::getSaltingInstance();
+		if (ExtensionManagementUtility::isLoaded('saltedpasswords') && SaltedPasswordsUtility::isUsageEnabled('FE')) {
+			$instanceSalted = SaltFactory::getSaltingInstance();
 		}
 		if ($instanceSalted && $instanceSalted->isValidSaltedPW($password)) {
 			if (! $instanceSalted->checkPassword($this->piVars['oldpassword'], $password)) {
 				return false;
 			}
-		} else if (t3lib_extMgm::isLoaded('kb_md5fepw')) {
+		} else if (ExtensionManagementUtility::isLoaded('kb_md5fepw')) {
 			if(strcmp(md5($this->piVars['oldpassword']),$password)!=0) {
 				return false;
 			}
