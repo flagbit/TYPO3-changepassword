@@ -53,10 +53,18 @@ In the example below the page “Benutzer” with the ``id`` 3 is selected.
    :alt: Plugin configuration in the TYPO3 backend
 
 
-=========
-Reference
-=========
-To be updated.
+====================
+TypoScript reference
+====================
+
+Setup
+=====
+``template``
+  Change the template file.
+
+  Example::
+
+    plugin.tx_changepassword_pi1.template = EXT:myext/res/template.html
 
 
 =======
@@ -89,6 +97,11 @@ To-Do list
 =========
 Changelog
 =========
+- 2016-XX-XX version 0.8.0
+
+  - Compatibility with TYPO3 7.6
+  - Drop compatibility with TYPO3 < 6.2
+  - Add TypoScript configuration for template file
 - 2011-07-08: Bug Fixes: Thanks to Boris Glusmann from http://www.horschler.eu
 - 2010-03-12: Update Documentation
 - 2010-03-10: Initial release

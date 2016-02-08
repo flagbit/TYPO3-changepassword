@@ -1,5 +1,6 @@
 <?php
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
 use TYPO3\CMS\Saltedpasswords\Utility\SaltedPasswordsUtility;
 use TYPO3\CMS\Saltedpasswords\Salt\SaltFactory;
@@ -57,7 +58,15 @@ class tx_changepassword_pi1 extends AbstractPlugin
 			$GLOBALS['TSFE']->id;
 
 		// Template code
-		$this->config['templateFile'] = $this->cObj->fileResource($this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'templateFile', 'sDEF') ? $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'templateFile', 'sDEF')  : ExtensionManagementUtility::siteRelPath($this->extKey) . 'res/template.html');
+		$template = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'templateFile', 'sDEF');
+		if ($template == '') {
+			if (isset($this->conf['template']) && $this->conf['template'] != '') {
+				$template = GeneralUtility::getFileAbsFileName($this->conf['template']);
+			} else {
+				$template = ExtensionManagementUtility::siteRelPath($this->extKey) . 'res/template.html';
+			}
+		}
+		$this->config['templateFile'] = $this->cObj->fileResource($template);
 	}
 
 
